@@ -6,7 +6,8 @@
 \usage{
 jrt_gains(tp_data, var = c("subject_id", "date", "answer_id", "question_id",
   "question_short", "answer_weight"), weight_var = "answer_weight",
-  weight_id = "^q", group_var = c("subject_id", "answer_id"))
+  weight_id = "^q", group_var = c("subject_id", "answer_id"),
+  eto_tp = c("jrt pre-/post test"))
 }
 \arguments{
 \item{tp_data}{dataframe: a dataframe containing touchpoint data."[Admin] raw_touchpoint_report_detailed"}

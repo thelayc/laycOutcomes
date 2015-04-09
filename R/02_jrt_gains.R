@@ -9,25 +9,28 @@
 #' tp <- laycUtils::load_txt('./my_data_folder/touchpoints.txt')
 #' tp <- laycUtils::format_data(tp)
 #' tp <- tp[tp$tp_name == "jrt pre-/post test", ]
-#' 
+#'
 #' jrt_gains(tp_data = tp)
 
-jrt_gains <- function(tp_data, 
-                        var = c('subject_id', 'date', 'answer_id', 'question_id', 
+jrt_gains <- function(tp_data,
+                        var = c('subject_id', 'date', 'answer_id', 'question_id',
                                 'question_short', 'answer_weight'),
                         weight_var = 'answer_weight',
                         weight_id = '^q',
-                        group_var = c('subject_id', 'answer_id')) {
-  
+                        group_var = c('subject_id', 'answer_id'),
+                      eto_tp = c("jrt pre-/post test")) {
+
+  # Subset data
+  tp_data <- tp_data[tp_data$tp_name == eto_tp, ]
   # Compute total scores
   tp_data <- sum_weights(tp_data)
-  
+
   # Identify pre and post test
   tp_data <- id_prepost(tp_data)
-  
+
   # Compute change
   tp_data <- compute_change(tp_data)
-  
+
   tp_data <- tp_data[!is.na(tp_data$change_ord), ]
   # Participants showing positive change
   pos <- length(unique(tp_data$subject_id[tp_data$change_ord == 'positive']))
@@ -37,7 +40,7 @@ jrt_gains <- function(tp_data,
   neg <- length(unique(tp_data$subject_id[tp_data$change_ord == 'negative']))
   # Participants with matching pre post test
   total <- pos + none + neg
-  
+
   # Return dataframe
-  return(list(positive = pos, no_change = none, negative = neg, total = total ))
+  return(list(positive = pos, no_change = none, negative = neg, total = total, percent_increase = pos/total ))
 }
