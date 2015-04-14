@@ -8,7 +8,6 @@
 #' @examples
 #' tp <- laycUtils::load_txt('./my_data_folder/touchpoints.txt')
 #' tp <- laycUtils::format_data(tp)
-#' tp <- tp[tp$tp_name == "jrt pre-/post test", ]
 #'
 #' jrt_gains(tp_data = tp)
 
