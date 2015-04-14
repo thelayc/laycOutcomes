@@ -5,10 +5,11 @@
 \title{jrt_table()}
 \usage{
 jrt_table(enroll_data, tp_data, measure = c("enrolled in JRT",
-  "assessed on soft skills", "gained soft-skills"), target = c(0.75, 0.9,
-  0.7), eto_programs = c("ss - job readiness", "pg - employment job training",
-  "dc - wise job training"), workforce_programs = c("ss - ccorps projects",
-  "ss - counseling", "ss - ged", "ss - job placement", "ss - job readiness",
+  "assessed on soft skills", "gained soft-skills"), target = c(enrolled =
+  0.75, assessed = 0.9, gained = 0.7), eto_programs = c("ss - job readiness",
+  "pg - employment job training", "dc - wise job training"),
+  workforce_programs = c("ss - ccorps projects", "ss - counseling",
+  "ss - ged", "ss - job placement", "ss - job readiness",
   "pg - employment case management", "pg - employment ged",
   "pg - employment in school", "pg - employment job placement",
   "pg - employment job training", "dc - wise ged", "dc - wise job placement",

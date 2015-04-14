@@ -17,7 +17,7 @@
 jrt_table <- function(enroll_data,
                       tp_data,
                       measure = c("enrolled in JRT", "assessed on soft skills", "gained soft-skills"),
-                      target = c(.75, .90, .70),
+                      target = c(enrolled = .75, assessed = .90, gained = .70),
                       eto_programs = c("ss - job readiness", "pg - employment job training", "dc - wise job training"),
                       workforce_programs = c("ss - ccorps projects", "ss - counseling",
                                               "ss - ged", "ss - job placement", "ss - job readiness",
@@ -40,13 +40,13 @@ jrt_table <- function(enroll_data,
   gained <- jrt_gains(tp_data)[['positive']]
 
   # Create data frame
-  participants <- c(workforce, enrollment, assessed)
+  n <- c(workforce, enrollment, assessed)
   value <- c(enrollment, assessed, gained)
-  df <- data.frame(measure, target, value, participants)
+  df <- data.frame(measure, target, value, n)
 
   # Format data frame
-  df$value_scaled <- round(df$value / df$participants, 3)
-  df$y_title <- paste('%', df$measure, '\nn =', df$participants)
+  df$value_scaled <- round(df$value / df$n, 3)
+  df$y_title <- paste('%', df$measure, '\nn =', df$n)
   df$target_met[df$value_scaled < df$target / 2] <- 'low'
   df$target_met[df$value_scaled >= df$target / 2 & df$value_scaled < df$target] <- 'medium'
   df$target_met[df$value_scaled >= df$target] <- 'high'
