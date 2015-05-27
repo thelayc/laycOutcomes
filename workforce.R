@@ -34,10 +34,8 @@ job <- load_txt(job_file)
 job <- format_data(job)
 
 # 2 - Workforce total-------------------------------------------------------
-workforce_programs <- c("ss - ccorps projects", "ss - counseling",
-                        "ss - ged", "ss - job placement", "ss - job readiness",
-                        "pg - employment case management", "pg - employment ged",
-                        "pg - employment in school", "pg - employment job placement",
+workforce_programs <- c("ss - ccorps projects", "ss - ged", "ss - job placement", "ss - job readiness",
+                        "pg - employment case management", "pg - employment ged", "pg - employment job placement",
                         "pg - employment job training", "dc - wise ged", "dc - wise job placement",
                         "dc - wise job training")
 

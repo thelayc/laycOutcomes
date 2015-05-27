@@ -14,6 +14,10 @@
 ged_gains <- function(pos_data,
                       eto_programs = c("ss - ged", "pg - employment ged", "dc - wise ged")){
 
+  # CHECK: input validity
+  assertthat::assert_that(is.data.frame(pos_data))
+  assertthat::assert_that(is.character(eto_programs))
+
   # 1 - keep only relevant records for analysis -----------------------------
   pos_data <- pos_data[pos_data$program_name %in% eto_programs, ]
   pos_data <- pos_data[pos_data$pos_name == "practice ged *total* score", ]
