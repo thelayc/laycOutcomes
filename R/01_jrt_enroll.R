@@ -8,10 +8,10 @@
 #' @examples
 #' enroll <- laycUtils::load_txt('./my_data_folder/enrollment.txt')
 #' enroll <- laycUtils::format_data(enroll)
-#' 
+#'
 #' jrt_enroll(enroll_data = enroll)
 
-jrt_enroll <- function(enroll_data, eto_programs = c("ss - job readiness", "pg - employment job training", "dc - wise job training"))
+jrt_enroll <- function(enroll_data, eto_programs = NULL)
 {
   # Retrieve only records of participants who enrolled in jrt
   out <- laycEnrollment::get_enroll(enroll_data, eto_programs)
