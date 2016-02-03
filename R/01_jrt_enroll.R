@@ -11,7 +11,7 @@
 #'
 #' jrt_enroll(enroll_data = enroll)
 
-jrt_enroll <- function(enroll_data, eto_programs = NULL)
+jrt_enroll <- function(enroll_data, eto_programs)
 {
   # Retrieve only records of participants who enrolled in jrt
   out <- laycEnrollment::get_enroll(enroll_data, eto_programs)
